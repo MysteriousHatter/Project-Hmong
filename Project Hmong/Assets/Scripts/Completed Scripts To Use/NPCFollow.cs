@@ -25,6 +25,7 @@ public class NPCFollow : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             isActive = true;
+            this.gameObject.tag = "Player";
         }
     }
 

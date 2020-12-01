@@ -77,6 +77,7 @@ public class Guard : MonoBehaviour
             if (OnGuardHasSpotedPlayer != null)
             {
                 Debug.Log("Shoot"); //invoke event for shooting player
+                
             }
         }
     }
