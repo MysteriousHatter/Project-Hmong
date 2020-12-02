@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 441765206}
   - component: {fileID: 441765205}
   - component: {fileID: 441765204}
+  - component: {fileID: 441765208}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -884,6 +885,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &441765208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441765203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4338474, y: 4.363927, z: 4.241535}
+  m_Center: {x: -0.7169237, y: 0.82061625, z: -1.6207676}
 --- !u!1 &476412939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,6 +2307,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2365,6 +2380,18 @@ Transform:
   m_Father: {fileID: 1589511100}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: -90, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bad3df1970b7a14bb439706a9216037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1079259854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,9 +3765,10 @@ GameObject:
   - component: {fileID: 1732756914}
   - component: {fileID: 1732756913}
   - component: {fileID: 1732756912}
+  - component: {fileID: 1732756916}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3822,6 +3850,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1732756916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732756911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1748728403
 GameObject:
   m_ObjectHideFlags: 0

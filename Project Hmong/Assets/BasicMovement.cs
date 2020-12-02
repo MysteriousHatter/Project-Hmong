@@ -22,4 +22,9 @@ public class BasicMovement : MonoBehaviour
             transform.position += moveSpeed * new Vector3(horizonatlInput, 0, verticalInput) * Time.deltaTime;
         }
     }
+
+    void OnMouseDown()
+    {
+        Debug.Log("Pew Pew");
+    }
 }
