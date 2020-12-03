@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class ObjectClicker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] float range = 100f;
+    [SerializeField] float damage = 30f;
+    [SerializeField] ParticleSystem muzzleFlash;
     // Update is called once per frame
     void Update()
     {
@@ -18,11 +15,12 @@ public class ObjectClicker : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            if (Physics.Raycast(ray, out hit, range))
             {
                 if (hit.transform != null)
                 {
                     PrintTable(hit.transform.gameObject);
+                    muzzleFlash.Play();
                 }
             }
         }
@@ -34,6 +32,7 @@ public class ObjectClicker : MonoBehaviour
         if(obj.gameObject.tag == "Enemy")
         {
             Debug.Log("Kill Enemy");
+
         }
         else
         {

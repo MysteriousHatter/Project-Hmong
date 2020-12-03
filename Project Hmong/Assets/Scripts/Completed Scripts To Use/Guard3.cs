@@ -53,6 +53,7 @@ public class Guard3 : MonoBehaviour
         viewAngle = spotLight.spotAngle;
         player = GameObject.FindWithTag("Player");
         meshAgent = this.GetComponent<NavMeshAgent>();
+        Patrolling();
 
     }
 
