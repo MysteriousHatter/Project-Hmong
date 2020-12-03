@@ -9,6 +9,8 @@ public class BasicMovement : MonoBehaviour
     float horizonatlInput;
     float verticalInput;
 
+    bool disabled;
+
     void Update()
     {
         horizonatlInput = Input.GetAxis("Horizontal");
@@ -17,7 +19,7 @@ public class BasicMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (horizonatlInput != 0 || verticalInput != 0)
+        if (horizonatlInput != 0 || verticalInput != 0 || !disabled)
         {
             transform.position += moveSpeed * new Vector3(horizonatlInput, 0, verticalInput) * Time.deltaTime;
         }
@@ -26,5 +28,16 @@ public class BasicMovement : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Pew Pew");
+        Debug.Log("oof ouch, my bones");
+    }
+
+    private void OnDestroy() //Will happen when scene get destroyed
+    {
+        Guard.OnGuardHasSpotedPlayer -= Disable;
+    }
+
+    private void Disable()
+    {
+        disabled = true;
     }
 }

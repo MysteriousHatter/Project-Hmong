@@ -57,8 +57,5 @@ public class Player : MonoBehaviour
     }
 
 
-    private void OnDestroy() //Will happen when scene get destroyed
-    {
-        Guard.OnGuardHasSpotedPlayer -= Disable;
-    }
+    
 }
