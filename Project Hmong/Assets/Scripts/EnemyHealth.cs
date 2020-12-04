@@ -7,14 +7,11 @@ public class EnemyHealth : MonoBehaviour
     [AddComponentMenu("Health")]
     public int enemyHP = 3;
     public int damage = 1;
-    bool isDead;
+
 
     // Start is called before the first frame update
 
-    public bool IsEnemyDead()
-    {
-        return isDead;
-    }
+
     void OnParticleCollision(GameObject other)
     {
 
@@ -31,8 +28,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        Destroy(this.gameObject);
         
     }
 }

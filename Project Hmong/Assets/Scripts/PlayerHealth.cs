@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,13 +9,10 @@ public class PlayerHealth : MonoBehaviour
     public int playerHp = 3;
     public int damage = 1;
     bool isDead;
+    LoadScene scene;
 
     // Start is called before the first frame update
 
-    public bool IsDead()
-    {
-        return isDead;
-    }
     void OnParticleCollision(GameObject other)
     {
 
@@ -24,15 +22,17 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("I'm hit");
             if (playerHp <= 0)
             {
-                Die();
+                Invoke("Restart", 1f) ;
             }
         }
     }
 
-    private void Die()
+    public void Restart()
     {
-        if (isDead) return;
-        isDead = true;
-        
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+        Debug.Log(currentSceneIndex);
     }
 }
+
+
