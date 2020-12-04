@@ -6,16 +6,29 @@ public class PlayerHealth : MonoBehaviour
 {
     [AddComponentMenu("Health")]
     public int playerHp = 3;
+    public int damage = 1;
+    bool isDead;
 
     // Start is called before the first frame update
-    void Start()
+
+    public bool IsDead()
     {
-        // I doubt anything is going to be put here
+        return isDead;
+    }
+    void OnParticleCollision(GameObject other)
+    {
+        playerHp = playerHp -  damage;
+        Debug.Log("I'm hit");
+        if (playerHp <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Die()
     {
-        if (playerHp <= 0) { } //I dunno what to put here yet, I guess this'll get figured out
+        if (isDead) return;
+        isDead = true;
+        
     }
 }

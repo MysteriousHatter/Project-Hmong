@@ -16,6 +16,7 @@ public class Guard : MonoBehaviour
     public float turnSpeed = 90f;
     public float timeToSportPlayer = 0.5f;
     [SerializeField] float waypointToTolerance = 1f;
+    [SerializeField] ParticleSystem muzzleFlash;
 
     public LayerMask viewMask;
     public Light spotLight;
@@ -74,9 +75,11 @@ public class Guard : MonoBehaviour
 
         if (playerVisibleTimer >= timeToSportPlayer)
         {
+            muzzleFlash.Play();
             if (OnGuardHasSpotedPlayer != null)
             {
-                Debug.Log("Shoot"); //invoke event for shooting player
+
+                //invoke event for shooting player
                 
             }
         }
