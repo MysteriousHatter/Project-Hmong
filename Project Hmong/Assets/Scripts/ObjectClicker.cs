@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,19 +11,27 @@ public class ObjectClicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, range))
+            Shoot();
+
+        }
+    }
+
+    void Shoot()
+    {
+        muzzleFlash.Play();
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, range))
+        {
+            if (hit.transform != null)
             {
-                if (hit.transform != null)
-                {
-                    PrintTable(hit.transform.gameObject);
-                    muzzleFlash.Play();
-                }
+                PrintTable(hit.transform.gameObject);
             }
+
         }
     }
 
