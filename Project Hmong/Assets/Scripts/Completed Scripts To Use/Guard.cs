@@ -160,7 +160,7 @@ public class Guard : MonoBehaviour
             Gizmos.DrawLine(previousPosition, waypoint.position);
             previousPosition = waypoint.position;
         }
-        Gizmos.DrawLine(previousPosition, startPosition);
+        //Gizmos.DrawLine(previousPosition, startPosition);
 
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
