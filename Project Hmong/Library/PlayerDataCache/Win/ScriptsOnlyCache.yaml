@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BasicMovement
     - BlueDoor
+    - EnemyHealth
     - Guard
     - Guard3
     - Key
@@ -12,10 +13,18 @@ ScriptsOnlyBuild:
     - NPCFollow
     - ObjectClicker
     - PatrolPath
-    - PlayerHealthOld
+    - PlayerHealth
     - RedDoor
+    Cinemachine.dll:
+    - Cinemachine.CinemachineBrain
+    - Cinemachine.CinemachineComposer
+    - Cinemachine.CinemachineFramingTransposer
+    - Cinemachine.CinemachinePipeline
+    - Cinemachine.CinemachineVirtualCamera
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.Timeline.Editor.dll:
+    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -57,25 +66,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11830}
+      Script: {instanceID: 11746}
     - Class: 114
-      Script: {instanceID: 11836}
+      Script: {instanceID: 11752}
     - Class: 114
-      Script: {instanceID: 11926}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 12084}
+      Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12104}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12534}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 12778}
     - Class: 114
-      Script: {instanceID: 13918}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 12888}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 13386}
+    - Class: 114
+      Script: {instanceID: 13448}
+    - Class: 114
+      Script: {instanceID: 13610}
+    - Class: 114
+      Script: {instanceID: 13836}
+    - Class: 114
+      Script: {instanceID: 13880}
+    - Class: 114
+      Script: {instanceID: 14006}
+    - Class: 114
+      Script: {instanceID: 14058}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -124,23 +145,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11830}
+      Script: {instanceID: 11746}
     - Class: 114
-      Script: {instanceID: 11836}
+      Script: {instanceID: 11752}
     - Class: 114
-      Script: {instanceID: 11838}
+      Script: {instanceID: 11754}
     - Class: 114
-      Script: {instanceID: 11926}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 12084}
+      Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 13002}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12920}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13448}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 13880}
+    - Class: 114
+      Script: {instanceID: 14006}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -185,21 +208,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11836}
+      Script: {instanceID: 11752}
     - Class: 114
-      Script: {instanceID: 11926}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 12084}
+      Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 12528}
+      Script: {instanceID: 12444}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13918}
+      Script: {instanceID: 13448}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13836}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 13880}
+    - Class: 114
+      Script: {instanceID: 14006}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -593,6 +618,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineDollyCart
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LoadScene
   - hash:
       serializedVersion: 2
       Hash: a1f3819fe574c88ab5e32fe006c8d0ad
@@ -1048,4 +1079,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level1.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/Level3.unity
-  playerPath: C:/Users/Alex/Desktop/Project Hmong.exe
+  playerPath: C:/Users/Sheku/Desktop/Game Development/3D/Project-Hmong/Build/Project
+    Hmong.exe
