@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,15 +13,17 @@ public class Player : MonoBehaviour
     float smoothInputMagnitude;
     float smoothMoveVelocity;
     Vector3 velocity;
+    CinematicTrigger trigger;
 
     new Rigidbody rigidbody;
-    bool disabled;
+    [SerializeField] bool disabled;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         Guard.OnGuardHasSpotedPlayer += Disable;
+        trigger = FindObjectOfType<CinematicTrigger>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,20 @@ public class Player : MonoBehaviour
     private void Disable()
     {
         disabled = true;
+    }
+
+    public void FreezeForCutsceene()
+    {
+        StartCoroutine(CutsceeneCoroutine());
+    }
+
+    IEnumerator CutsceeneCoroutine()
+    {
+        disabled = true;
+
+        yield return new WaitForSeconds(trigger.timeToAppear);
+
+        disabled = false;
     }
 
     private void FixedUpdate()

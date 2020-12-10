@@ -1,50 +1,54 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
-{ 
-    private float moveSpeed = 7.5f;
-    private float smoothMoveTime = .1f;
-    private float rotationalSpeed = 10;
+{
+    public float moveSpeed = 8;
+    private Rigidbody myRigidBody;
 
     float horizonatlInput;
     float verticalInput;
 
-    float targetAngle;
-    float playerAngle;
-    float smoothMoveVelocity;
-    float smoothInputMagnitude;
+    Vector3 moveInput;
+    Vector3 moveVelocity;
+
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        myRigidBody = GetComponent<Rigidbody>();
+        mainCamera = FindObjectOfType<Camera>();
+    }
 
     void Update()
     {
-        horizonatlInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizonatlInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
-        Vector3 inputDirection = new Vector3(horizonatlInput, 0, verticalInput);
-        float inputMagnitude = inputDirection.magnitude;
-        smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputMagnitude, ref smoothMoveVelocity, smoothMoveTime);
+        moveInput = new Vector3(horizonatlInput, 0f, verticalInput);
+        moveVelocity = moveInput * moveSpeed;
 
-        float targetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
-        playerAngle = Mathf.LerpAngle(playerAngle, targetAngle, Time.deltaTime * rotationalSpeed * inputMagnitude);
-        transform.eulerAngles = Vector3.up * playerAngle;
+        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
 
-        transform.Translate(transform.forward * moveSpeed * Time.deltaTime * smoothInputMagnitude, Space.World);
-    }
-
-    /*
-    void FixedUpdate()
-    {
-        float targetAngle = Mathf.Atan2(horizonatlInput, verticalInput) * Mathf.Rad2Deg;
-        playerAngle = Mathf.LerpAngle(playerAngle, targetAngle, Time.deltaTime * rotationalSpeed);
-        transform.eulerAngles = Vector3.up * playerAngle;
-
-        if (horizonatlInput != 0 || verticalInput != 0)
+        if (groundPlane.Raycast(cameraRay, out rayLength))
         {
-            transform.position += moveSpeed * new Vector3(horizonatlInput, 0, verticalInput) * Time.deltaTime;
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            //REMOVE BELOW LINE BREFORE SHIPPING
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
     }
-    */
+
+    private void FixedUpdate()
+    {
+        myRigidBody.velocity = moveVelocity;
+    }
+
     void OnMouseDown()
     {
         Debug.Log("Pew Pew");
